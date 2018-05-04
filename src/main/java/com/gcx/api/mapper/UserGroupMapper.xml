@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gcx.api.dao.UserGroupMapper" >
+  <resultMap id="BaseResultMap" type="com.gcx.api.model.UserGroup" >
+    <id column="tid" property="tid" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="VARCHAR" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="VARCHAR" />
+    <result column="update_user" property="updateUser" jdbcType="VARCHAR" />
+    <result column="group_id" property="groupId" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="group_name" property="groupName" jdbcType="VARCHAR" />
+    <result column="standby_one" property="standbyOne" jdbcType="VARCHAR" />
+    <result column="standby_two" property="standbyTwo" jdbcType="VARCHAR" />
+    <result column="standby_there" property="standbyThere" jdbcType="INTEGER" />
+    <result column="standby_four" property="standbyFour" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    tid, create_time, create_user, update_time, update_user, group_id, user_id, group_name, 
+    standby_one, standby_two, standby_there, standby_four
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_group
+    where tid = #{tid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from user_group
+    where tid = #{tid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insertSelective" parameterType="com.gcx.api.model.UserGroup" >
+    insert into user_group
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tid != null" >
+        tid,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="updateUser != null" >
+        update_user,
+      </if>
+      <if test="groupId != null" >
+        group_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="groupName != null" >
+        group_name,
+      </if>
+      <if test="standbyOne != null" >
+        standby_one,
+      </if>
+      <if test="standbyTwo != null" >
+        standby_two,
+      </if>
+      <if test="standbyThere != null" >
+        standby_there,
+      </if>
+      <if test="standbyFour != null" >
+        standby_four,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tid != null" >
+        #{tid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null" >
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null" >
+        #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupName != null" >
+        #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyOne != null" >
+        #{standbyOne,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyTwo != null" >
+        #{standbyTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyThere != null" >
+        #{standbyThere,jdbcType=INTEGER},
+      </if>
+      <if test="standbyFour != null" >
+        #{standbyFour,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gcx.api.model.UserGroup" >
+    update user_group
+    <set >
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null" >
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null" >
+        group_id = #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupName != null" >
+        group_name = #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyOne != null" >
+        standby_one = #{standbyOne,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyTwo != null" >
+        standby_two = #{standbyTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyThere != null" >
+        standby_there = #{standbyThere,jdbcType=INTEGER},
+      </if>
+      <if test="standbyFour != null" >
+        standby_four = #{standbyFour,jdbcType=INTEGER},
+      </if>
+    </set>
+    where tid = #{tid,jdbcType=VARCHAR}
+  </update>
+  <sql id="Base_Where_List" >
+    <where >
+      <if test="createTime != null" >
+         and create_time = #{createTime,jdbcType=VARCHAR}
+      </if>
+      <if test="createUser != null" >
+         and create_user = #{createUser,jdbcType=VARCHAR}
+      </if>
+      <if test="updateTime != null" >
+         and update_time = #{updateTime,jdbcType=VARCHAR}
+      </if>
+      <if test="updateUser != null" >
+         and update_user = #{updateUser,jdbcType=VARCHAR}
+      </if>
+      <if test="groupId != null" >
+         and group_id = #{groupId,jdbcType=VARCHAR}
+      </if>
+      <if test="userId != null" >
+         and user_id = #{userId,jdbcType=VARCHAR}
+      </if>
+      <if test="groupName != null" >
+         and group_name = #{groupName,jdbcType=VARCHAR}
+      </if>
+      <if test="standbyOne != null" >
+         and standby_one = #{standbyOne,jdbcType=VARCHAR}
+      </if>
+      <if test="standbyTwo != null" >
+         and standby_two = #{standbyTwo,jdbcType=VARCHAR}
+      </if>
+      <if test="standbyThere != null" >
+         and standby_there = #{standbyThere,jdbcType=INTEGER}
+      </if>
+      <if test="standbyFour != null" >
+         and standby_four = #{standbyFour,jdbcType=INTEGER}
+      </if>
+    </where>
+  </sql>
+  <select id="findAllList" resultMap="BaseResultMap" parameterType="com.gcx.api.model.UserGroup" >
+     select 
+    <include refid="Base_Column_List" />
+      from user_group
+    <include refid="Base_Where_List" />
+    order by create_time desc <if test="pageSize!=-1">  LIMIT #{firstResult,jdbcType=INTEGER},#{pageSize,jdbcType=INTEGER} </if>
+  </select>
+  <select id="findAllListCount" resultType="java.lang.Long" parameterType="com.gcx.api.model.UserGroup" >
+     select count(1) from user_group
+    <include refid="Base_Where_List" />
+  </select>
+  <delete id="delRecords" parameterType="java.lang.String" >
+     delete  from user_group where tid IN(${tids})
+  </delete>
+</mapper>

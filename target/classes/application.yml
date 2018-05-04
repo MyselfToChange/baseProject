@@ -1,0 +1,42 @@
+spring:
+   datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/app_chat?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+      username: root
+      password: isoftadmin
+      initialize: true
+      initialSize: 1
+      minIdle: 3
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 30000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      filters: stat,wall,slf4j
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      useGlobalDataSourceStat: true
+   redis: 
+      host: 127.0.0.1
+      port: 6379
+      password: gcxredis
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: 10000      
+custom:
+   datasource:
+      names: ds1
+      ds1:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/nzw_city_api?useUnicode=true&characterEncoding=UTF-8&useSSL=false          
+        username: root
+        password: isoftadmin
+mybatis:
+   mapper-locations: classpath*:com/gcx/api/mapper/*Mapper.xml
+   type-aliases-package: com.gcx.api.model
+      
