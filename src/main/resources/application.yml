@@ -39,4 +39,7 @@ custom:
 mybatis:
    mapper-locations: classpath*:com/gcx/api/mapper/*Mapper.xml
    type-aliases-package: com.gcx.api.model
+server:
+    port: 8081
+    contextPath: /myProject
       
