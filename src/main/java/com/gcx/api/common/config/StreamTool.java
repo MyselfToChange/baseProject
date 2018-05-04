@@ -3,7 +3,7 @@ package com.gcx.api.common.config;
 import java.io.*;
 
 /**
- * @author Beauxie
+ * @author qimy
  * @date Created on 2018/04/06
  */
 public class StreamTool {
