@@ -37,7 +37,6 @@ public class SwaggerConfig {
                 .title("济南市政务诚信  APIs")
                 .description("")
                 .termsOfServiceUrl("")
-                .contact("Change")
                 .version("1.0")
                 .build();
     }
