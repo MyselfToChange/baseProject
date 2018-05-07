@@ -1,0 +1,733 @@
+= 济南市政务诚信  APIs
+
+
+[[_overview]]
+== Overview
+
+=== Version information
+[%hardbreaks]
+__Version__ : 1.0
+
+
+=== URI scheme
+[%hardbreaks]
+__Host__ : localhost:8081
+__BasePath__ : /myProject
+
+
+=== Tags
+
+* flicker-controller : 表扬激励
+* user-group-controller : 群组
+
+
+
+
+[[_paths]]
+== Paths
+
+[[_addusingpost]]
+=== 新增
+....
+POST /flickers
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**record** +
+__required__|record|<<_be62c90e637631eef23b5d9162aca61f,BaseEntity对象>>
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_myresult,MyResult>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* flicker-controller
+
+
+[[_listusingget]]
+=== 列表
+....
+GET /flickers
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**auditStatus** +
+__optional__|审核状态(1未提交2审核中3通过4驳回)|integer (int32)
+|**Query**|**cityCode** +
+__optional__||string
+|**Query**|**classify** +
+__optional__||integer (int32)
+|**Query**|**county** +
+__optional__||string
+|**Query**|**createT** +
+__optional__||string
+|**Query**|**createTime** +
+__optional__|创建时间|string
+|**Query**|**createUid** +
+__optional__||string
+|**Query**|**createUser** +
+__optional__|创建人|string
+|**Query**|**departmentName** +
+__optional__||string
+|**Query**|**firstResult** +
+__optional__||integer (int32)
+|**Query**|**incident** +
+__optional__||string
+|**Query**|**organizationName** +
+__optional__||string
+|**Query**|**pageNo** +
+__optional__||integer (int32)
+|**Query**|**pageSize** +
+__optional__||integer (int32)
+|**Query**|**publishStatus** +
+__optional__||integer (int32)
+|**Query**|**publishT** +
+__optional__||string
+|**Query**|**publishUid** +
+__optional__||string
+|**Query**|**rejectReson** +
+__optional__|驳回原因|string
+|**Query**|**t1** +
+__optional__|备用1|string
+|**Query**|**t2** +
+__optional__|备用2|string
+|**Query**|**t3** +
+__optional__|备用3|string
+|**Query**|**t4** +
+__optional__|备用4|string
+|**Query**|**t5** +
+__optional__|备用5|string
+|**Query**|**t6** +
+__optional__||integer (int32)
+|**Query**|**t7** +
+__optional__|备用7|integer (int32)
+|**Query**|**tid** +
+__optional__|主键|string
+|**Query**|**updateT** +
+__optional__||string
+|**Query**|**updateTime** +
+__optional__|更新时间|string
+|**Query**|**updateUid** +
+__optional__||string
+|**Query**|**updateUser** +
+__optional__|更新人|string
+|**Query**|**villages** +
+__optional__||string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_myresult,MyResult>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* flicker-controller
+
+
+[[_updateusingput]]
+=== 修改
+....
+PUT /flickers
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**record** +
+__required__|record|<<_be62c90e637631eef23b5d9162aca61f,BaseEntity对象>>
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_myresult,MyResult>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* flicker-controller
+
+
+[[_deleteusingdelete]]
+=== 删除
+....
+DELETE /flickers/{tids}
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Path**|**tids** +
+__required__|tids|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_myresult,MyResult>>
+|**204**|No Content|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* flicker-controller
+
+
+[[_getusingget]]
+=== 查询详情
+....
+GET /flickers/{tid}
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Path**|**tid** +
+__required__|tid|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_myresult,MyResult>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* flicker-controller
+
+
+[[_addusingpost_1]]
+=== 新增
+....
+POST /userGroups
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**record** +
+__required__|record|<<_usergroup,UserGroup>>
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_myresult,MyResult>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* user-group-controller
+
+
+[[_listusingget_1]]
+=== 列表
+....
+GET /userGroups
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Query**|**auditStatus** +
+__optional__|审核状态(1未提交2审核中3通过4驳回)|integer (int32)
+|**Query**|**createTime** +
+__optional__|创建时间|string
+|**Query**|**createUser** +
+__optional__|创建人|string
+|**Query**|**firstResult** +
+__optional__||integer (int32)
+|**Query**|**groupId** +
+__optional__|群组ID|string
+|**Query**|**groupName** +
+__optional__|群名称|string
+|**Query**|**pageNo** +
+__optional__||integer (int32)
+|**Query**|**pageSize** +
+__optional__||integer (int32)
+|**Query**|**rejectReson** +
+__optional__|驳回原因|string
+|**Query**|**standbyFour** +
+__optional__||integer (int32)
+|**Query**|**standbyOne** +
+__optional__||string
+|**Query**|**standbyThere** +
+__optional__||integer (int32)
+|**Query**|**standbyTwo** +
+__optional__||string
+|**Query**|**t1** +
+__optional__|备用1|string
+|**Query**|**t2** +
+__optional__|备用2|string
+|**Query**|**t3** +
+__optional__|备用3|string
+|**Query**|**t4** +
+__optional__|备用4|string
+|**Query**|**t5** +
+__optional__|备用5|string
+|**Query**|**t6** +
+__optional__|备用6|integer (int32)
+|**Query**|**t7** +
+__optional__|备用7|integer (int32)
+|**Query**|**tid** +
+__optional__|主键|string
+|**Query**|**updateTime** +
+__optional__|更新时间|string
+|**Query**|**updateUser** +
+__optional__|更新人|string
+|**Query**|**userId** +
+__optional__|用户ID|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_myresult,MyResult>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* user-group-controller
+
+
+[[_updateusingput_1]]
+=== 修改
+....
+PUT /userGroups
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**record** +
+__required__|record|<<_usergroup,UserGroup>>
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_myresult,MyResult>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* user-group-controller
+
+
+[[_deleteusingdelete_1]]
+=== 删除
+....
+DELETE /userGroups/{tids}
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Path**|**tids** +
+__required__|tids|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_myresult,MyResult>>
+|**204**|No Content|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* user-group-controller
+
+
+[[_getusingget_1]]
+=== 查询详情
+....
+GET /userGroups/{tid}
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Path**|**tid** +
+__required__|tid|string
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_myresult,MyResult>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* user-group-controller
+
+
+
+
+[[_definitions]]
+== Definitions
+
+[[_be62c90e637631eef23b5d9162aca61f]]
+=== BaseEntity对象
+公共对象
+
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**auditStatus** +
+__optional__|审核状态(1未提交2审核中3通过4驳回)|integer (int32)
+|**cityCode** +
+__optional__||string
+|**classify** +
+__optional__||integer (int32)
+|**county** +
+__optional__||string
+|**createT** +
+__optional__||string
+|**createTime** +
+__optional__|创建时间|string
+|**createUid** +
+__optional__||string
+|**createUser** +
+__optional__|创建人|string
+|**departmentName** +
+__optional__||string
+|**firstResult** +
+__optional__||integer (int32)
+|**incident** +
+__optional__||string
+|**organizationName** +
+__optional__||string
+|**pageNo** +
+__optional__||integer (int32)
+|**pageSize** +
+__optional__||integer (int32)
+|**publishStatus** +
+__optional__||integer (int32)
+|**publishT** +
+__optional__||string
+|**publishUid** +
+__optional__||string
+|**rejectReson** +
+__optional__|驳回原因|string
+|**t1** +
+__optional__|备用1|string
+|**t2** +
+__optional__|备用2|string
+|**t3** +
+__optional__|备用3|string
+|**t4** +
+__optional__|备用4|string
+|**t5** +
+__optional__|备用5|string
+|**t6** +
+__optional__||integer (int32)
+|**t7** +
+__optional__|备用7|integer (int32)
+|**tid** +
+__optional__|主键|string
+|**updateT** +
+__optional__||string
+|**updateTime** +
+__optional__|更新时间|string
+|**updateUid** +
+__optional__||string
+|**updateUser** +
+__optional__|更新人|string
+|**villages** +
+__optional__||string
+|===
+
+
+[[_myresult]]
+=== MyResult
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**count** +
+__optional__|integer (int32)
+|**data** +
+__optional__|object
+|**msg** +
+__optional__|string
+|**status** +
+__optional__|integer (int32)
+|===
+
+
+[[_usergroup]]
+=== UserGroup
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**auditStatus** +
+__optional__|审核状态(1未提交2审核中3通过4驳回)|integer (int32)
+|**createTime** +
+__optional__|创建时间|string
+|**createUser** +
+__optional__|创建人|string
+|**firstResult** +
+__optional__||integer (int32)
+|**groupId** +
+__optional__|群组ID|string
+|**groupName** +
+__optional__|群名称|string
+|**pageNo** +
+__optional__||integer (int32)
+|**pageSize** +
+__optional__||integer (int32)
+|**rejectReson** +
+__optional__|驳回原因|string
+|**standbyFour** +
+__optional__||integer (int32)
+|**standbyOne** +
+__optional__||string
+|**standbyThere** +
+__optional__||integer (int32)
+|**standbyTwo** +
+__optional__||string
+|**t1** +
+__optional__|备用1|string
+|**t2** +
+__optional__|备用2|string
+|**t3** +
+__optional__|备用3|string
+|**t4** +
+__optional__|备用4|string
+|**t5** +
+__optional__|备用5|string
+|**t6** +
+__optional__|备用6|integer (int32)
+|**t7** +
+__optional__|备用7|integer (int32)
+|**tid** +
+__optional__|主键|string
+|**updateTime** +
+__optional__|更新时间|string
+|**updateUser** +
+__optional__|更新人|string
+|**userId** +
+__optional__|用户ID|string
+|===
+
+
+
+
+
