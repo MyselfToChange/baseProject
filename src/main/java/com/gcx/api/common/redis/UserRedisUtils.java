@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.Cursor;
 import org.springframework.data.redis.core.ScanOptions;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson.JSON;
@@ -86,6 +88,11 @@ public class UserRedisUtils {
 	public void incrString(String key,Integer value){
 		redisTemplate.opsForValue().increment(key, value);
 	}
+    //设置字符串并设置过期时间
+    public void setStr(String key, String value, long time, TimeUnit unit){
+        ValueOperations<String, String> valueOperations = redisTemplate.opsForValue();
+        valueOperations.set(key,value,time,unit);
+    }
 	//==========================Hash操作===============================
 	//hashkey自增
 	public void incrHash(String key,Object hashKey,Integer delta){

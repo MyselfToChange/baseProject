@@ -30,14 +30,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        <!--
-          <exclusions>
-			<exclusion>
-			   <groupId>org.springframework.boot</groupId>
-			   <artifactId>spring-boot-starter-tomcat</artifactId>
-			</exclusion>
-		  </exclusions>
-		 -->
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -116,9 +108,6 @@
             <artifactId>swagger2markup</artifactId>
             <version>1.3.1</version>
         </dependency>
-      <!--swagger2-->
-
-
 		<!-- Redis 相关依赖 -->
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
@@ -134,11 +123,6 @@
 			<artifactId>standard</artifactId>
 			<version>1.1.2</version>
 		</dependency>
-<!-- 		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>2.3.1</version>
-		</dependency> -->
 		<!-- 上传组件包 -->
 		<dependency>
 			<groupId>commons-fileupload</groupId>
@@ -150,75 +134,97 @@
 			<artifactId>commons-io</artifactId>
 			<version>2.4</version>
 		</dependency>
-        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+        <!-- 切面依赖-->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>1.8.10</version>
         </dependency>
-
+      <!--httpClient 依赖-->
+      <dependency>
+          <groupId>org.apache.httpcomponents</groupId>
+          <artifactId>httpclient</artifactId>
+          <version>4.5.3</version>
+      </dependency>
+      <!--google ZXing 二维码生成工具包-->
+      <dependency>
+          <groupId>com.google.zxing</groupId>
+          <artifactId>core</artifactId>
+          <version>3.3.0</version>
+      </dependency>
+      <dependency>
+          <groupId>com.google.zxing</groupId>
+          <artifactId>javase</artifactId>
+          <version>3.3.0</version>
+      </dependency>
+      <dependency>
+          <groupId>org.apache.httpcomponents</groupId>
+          <artifactId>httpmime</artifactId>
+          <version>4.5.2</version>
+      </dependency>
   </dependencies>
-  
-      <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-               <executions>
-	               <execution>
-	                   <goals>
-	                       <goal>repackage</goal>
-	                   </goals>
-	               </execution>
-	           </executions>
-             <dependencies>
-	           <!-- spring热部署 -->
-	           <dependency>
-	             <groupId>org.springframework</groupId>
-	             <artifactId>springloaded</artifactId>
-	             <version>1.2.6.RELEASE</version>
-	           </dependency>
-	         </dependencies>
-            </plugin>
-            <!--编译jdk版本-->
-            <plugin>
-               <artifactId>maven-compiler-plugin</artifactId>
-               <configuration>
-                  <source>1.8</source>
-                  <target>1.8</target>
-               </configuration>
-            </plugin>
-            <!--swagger2生成html文档-->
-            <plugin>
-                <groupId>io.github.swagger2markup</groupId>
-                <artifactId>swagger2markup-maven-plugin</artifactId>
-                <version>1.3.1</version>
-                <configuration>
-                    <swaggerInput>http://localhost:8080/v2/api-docs</swaggerInput>
-                    <outputDir>src/docs/asciidoc/generated</outputDir>
-                    <config>
-                        <swagger2markup.markupLanguage>ASCIIDOC</swagger2markup.markupLanguage>
-                    </config>
-                </configuration>
-            </plugin>
+    <build>
+      <!--导出的jar或者war的名字-->
+      <finalName>myproject</finalName>
+      <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <executions>
+               <execution>
+                   <goals>
+                       <goal>repackage</goal>
+                   </goals>
+               </execution>
+            </executions>
+            <dependencies>
+               <!-- spring热部署 -->
+               <dependency>
+                 <groupId>org.springframework</groupId>
+                 <artifactId>springloaded</artifactId>
+                 <version>1.2.6.RELEASE</version>
+               </dependency>
+            </dependencies>
+        </plugin>
+        <!--编译jdk版本-->
+        <plugin>
+           <artifactId>maven-compiler-plugin</artifactId>
+           <configuration>
+              <source>1.8</source>
+              <target>1.8</target>
+           </configuration>
+        </plugin>
+        <!--swagger2生成html文档-->
+        <plugin>
+            <groupId>io.github.swagger2markup</groupId>
+            <artifactId>swagger2markup-maven-plugin</artifactId>
+            <version>1.3.1</version>
+            <configuration>
+                <swaggerInput>http://localhost:8080/v2/api-docs</swaggerInput>
+                <outputDir>src/docs/asciidoc/generated</outputDir>
+                <config>
+                    <swagger2markup.markupLanguage>ASCIIDOC</swagger2markup.markupLanguage>
+                </config>
+            </configuration>
+        </plugin>
 
-            <plugin>
-                <groupId>org.asciidoctor</groupId>
-                <artifactId>asciidoctor-maven-plugin</artifactId>
-                <version>1.5.6</version>
-                <configuration>
-                    <sourceDirectory>src/docs/asciidoc/generated</sourceDirectory>
-                    <outputDirectory>src/docs/asciidoc/html</outputDirectory>
-                    <backend>html</backend>
-                    <sourceHighlighter>coderay</sourceHighlighter>
-                    <attributes>
-                        <toc>left</toc>
-                    </attributes>
-                </configuration>
-            </plugin>
-        </plugins>
+        <!--swgger2生成html文档插件-->
+        <plugin>
+            <groupId>org.asciidoctor</groupId>
+            <artifactId>asciidoctor-maven-plugin</artifactId>
+            <version>1.5.6</version>
+            <configuration>
+                <sourceDirectory>src/docs/asciidoc/generated</sourceDirectory>
+                <outputDirectory>src/docs/asciidoc/html</outputDirectory>
+                <backend>html</backend>
+                <sourceHighlighter>coderay</sourceHighlighter>
+                <attributes>
+                    <toc>left</toc>
+                </attributes>
+            </configuration>
+        </plugin>
+      </plugins>
     </build>
-    
      <repositories>
         <repository>
             <id>aliyun-repos</id>
@@ -236,7 +242,6 @@
              <url>http://jcenter.bintray.com</url>
          </repository>
     </repositories>
-
     <pluginRepositories>
         <pluginRepository>
             <id>aliyun-plugin</id>

@@ -29,7 +29,7 @@ spring:
         min-idle: 0
         max-wait: 10000
    data:
-   #mongodb 数据库连接配置
+   # mongodb 数据库连接配置
       mongodb:
         uri: mongodb://test:123456@localhost:27017/test
 custom:
