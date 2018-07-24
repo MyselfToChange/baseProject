@@ -27,7 +27,11 @@ spring:
         max-active: 8
         max-idle: 8
         min-idle: 0
-        max-wait: 10000      
+        max-wait: 10000
+   data:
+   # mongodb 数据库连接配置
+      mongodb:
+        uri: mongodb://test:123456@localhost:27017/test
 custom:
    datasource:
       names: ds1
@@ -37,6 +41,17 @@ custom:
         username: root
         password: isoftadmin
 mybatis:
-   mapper-locations: classpath*:com/gcx/api/mapper/*Mapper.xml
-   type-aliases-package: com.gcx.api.model
+  #config-location: classpath:config/mybatis-config.xml
+  # type-aliases扫描路径
+  type-aliases-package: com.gcx.api.model
+  # mapper xml实现扫描路径
+  mapper-locations: classpath:mapper/*.xml
+  property:
+    order: BEFORE
+server:
+    port: 8001
+    contextPath: /myproject
+logging:
+  level:
+    com.gcx.api.dao: DEBUG
       
